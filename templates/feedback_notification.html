@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .header img {
+            max-width: 120px;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 20px 30px;
+        }
+        .content h2 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .feedback-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 6px solid #2c3e50;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .feedback-box p {
+            margin: 0;
+            color: #555;
+            font-size: 16px;
+        }
+        .details {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .details strong {
+            color: #2c3e50;
+        }
+        .footer {
+            background-color: #f4f4f9;
+            color: #777;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        @media (max-width: 600px) {
+            .content {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="cid:company_logo" alt="Company Logo">
+            <h1>Client Feedback</h1>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <h2>New Feedback Received</h2>
+            <div class="feedback-box">
+                <p>{{ message }}</p>
+            </div>
+            <div class="details feedback-box">
+                <p><strong>Client Name:</strong> {{ client_name }}</p>
+                <p><strong>Client PhoneNumber:</strong> {{ client_phone }}</p>
+                <p><strong>Client Email:</strong> {{ client_email }}</p>
+                <p><strong>Submitted On:</strong> {{ submitted_on | default("N/A") }}</p>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>&copy; 2025 WeaverCo. All rights reserved.</p>
+            <p>Internal Communication - Do Not Forward</p>
+        </div>
+    </div>
+</body>
+</html>

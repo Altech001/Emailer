@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Email</title>
+    <style>
+        :root {
+            --primary-color: #0062ff;
+            --secondary-color: #00b7ff;
+            --accent-color: #ff3366;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --bg-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+            background-color: #f7fafc;
+            color: var(--text-primary);
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: #f7fafc;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            padding: 30px 20px;
+            text-align: left;
+        }
+
+        .content h2 {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .content .info-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid  #ff3366;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .content a.button {
+            display: inline-block;
+            background: blue;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 20px;
+            transition: 0.3s ease;
+        }
+
+        .content a.button:hover {
+            background: blue;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background-color: #1a202c;
+            color: #a0aec0;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: #00b7ff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+            }
+
+            .header, .content, .footer {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Thanks For The ReachOut</h1>
+        </div>
+
+        <div class="content">
+            <h2>Hello, {{ name | default("there") }}👋</h2>
+            <p>Thank you for reaching out to us. We have received your message and will respond within 24 hours.</p>
+
+            <div class="info-box">
+                <strong>Need immediate help?</strong> Check out our <a href="#" style="color: var(--primary-color); text-decoration: underline;">Help Center</a> for quick answers.
+            </div>
+            <div>Please do not hesitate to contact our support team if you have any questions or concerns.
+                Thank you 💜</div>
+            {% if action_url %}
+            <a href="{{ action_url }}" class="button">{{ action_text | default("Get Started →") }}</a>
+            {% endif %}
+        </div>
+
+        <div class="footer">
+            <p>&copy; {{ year | default("2025") }} WeaverCo. All rights reserved.</p>
+            <p>Need help? Email us at <a href="mailto:{{ contact_email | default("support@WeaverCo.com") }}">{{ contact_email | default("support@WeaverCo.com") }}</a></p>
+        </div>
+    </div>
+</body>
+</html>
